@@ -35,7 +35,25 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-
+  # state management bloc
+  flutter_bloc: ^8.1.5
+  # Purpose: Simplifies the implementation of equality comparisons in Dart.
+  equatable: ^2.0.3
+  # Purpose: Provides functional programming constructs like Either and Option.
+  dartz: ^0.10.0
+  # formate times
+  intl: ^0.18.1
+  # animation icon .json
+  lottie: ^3.1.0
+  # local storage
+  shared_preferences: ^2.2.2
+  #  initializes Firebase in your app and is required to use any other Firebase services (like Firebase Authentication, Firestore...)
+  firebase_core: ^2.27.0
+  # It supports various authentication methods, including email/password, phone authentication, and third-party providers like Google, Facebook, and more.
+  firebase_auth: ^4.17.8
+  # To access Google Sign-In
+  google_sign_in: ^6.2.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1007103333909-9d71jlbd98q6705mkmfa8mr9gh78thmc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1007103333909-9d71jlbd98q6705mkmfa8mr9gh78thmc</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1007103333909-ktuc7fmj4dfldvr09clih3hlnc7caib2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8lIXhy8rso7IR37K_A_oPmdbQMKS6ovo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1007103333909</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.noteScheduleRemidBloc</string>
+	<key>PROJECT_ID</key>
+	<string>calendar-remider-ac341</string>
+	<key>STORAGE_BUCKET</key>
+	<string>calendar-remider-ac341.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1007103333909:ios:0f3d5668939f1fd953201c</string>
+</dict>
+</plist>
