@@ -1,23 +1,41 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:note_schedule_remid_bloc/blocs/auth/auth_bloc.dart';
 import 'package:note_schedule_remid_bloc/firebase_options.dart';
-import 'package:note_schedule_remid_bloc/presentation/blocs/auth/auth_bloc.dart';
-import 'package:note_schedule_remid_bloc/presentation/pages/example/google_sign_in_page.dart';
+import 'package:easy_localization/easy_localization.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:note_schedule_remid_bloc/presentations/pages/example/google_sign_in_page.dart';
+import 'package:note_schedule_remid_bloc/utils/localization/custom_localizations.dart';
 
 Future<void> _initializeFirebase() async {
-  // initialize with Firebase credentials
+  // Initialize Firebase with credentials
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 }
 
-void main() {
+void main() async {
+  // Ensure Flutter bindings are initialized
   WidgetsFlutterBinding.ensureInitialized();
-  _initializeFirebase();
 
-  runApp(const MyApp());
+  // Initialize EasyLocalization and Firebase
+  await EasyLocalization.ensureInitialized();
+  await _initializeFirebase();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('vn'),
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      startLocale: const Locale('en'), // default language
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,13 +43,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => GoogleSignInBloc(GoogleSignIn()),
-      child: const MaterialApp(
+    // var sizeWidth = MediaQuery.of(context).size.width;
+    // var sizeHeigth = MediaQuery.of(context).size.height;
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<GoogleSignInBloc>(
+          create: (context) => GoogleSignInBloc(),
+        ),
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Schedule calendar',
-        home: GoogleSignInPage(),
+        theme: ThemeData(),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          // fix error warning with vn language
+          const MyMaterialLocalizationsDelegate(),
+          const MyCupertinoLocalizationsDelegate(),
+          EasyLocalization.of(context)!.delegate,
+        ],
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        home: const GoogleSignInPage(),
+        //home: Container(),
       ),
     );
   }
 }
+
+// this for changes language
+///  context.setLocale(const Locale('en'));

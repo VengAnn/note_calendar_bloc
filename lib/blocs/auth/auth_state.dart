@@ -1,5 +1,6 @@
+// Define states
 import 'package:equatable/equatable.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class GoogleSignInState extends Equatable {
   const GoogleSignInState();
@@ -13,7 +14,7 @@ class GoogleSignInInitial extends GoogleSignInState {}
 class GoogleSignInLoading extends GoogleSignInState {}
 
 class GoogleSignInSuccess extends GoogleSignInState {
-  final GoogleSignInAccount? user;
+  final User? user;
 
   const GoogleSignInSuccess(this.user);
 

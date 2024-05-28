@@ -32,8 +32,6 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   # state management bloc
   flutter_bloc: ^8.1.5
@@ -42,7 +40,7 @@ dependencies:
   # Purpose: Provides functional programming constructs like Either and Option.
   dartz: ^0.10.0
   # formate times
-  intl: ^0.18.1
+  intl: ^0.19.0
   # animation icon .json
   lottie: ^3.1.0
   # local storage
@@ -53,7 +51,12 @@ dependencies:
   firebase_auth: ^4.17.8
   # To access Google Sign-In
   google_sign_in: ^6.2.1
-  
+  # change language
+  easy_localization: ^3.0.5
+  # calendar
+  syncfusion_flutter_calendar: ^25.2.6
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -77,8 +80,12 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/translations/
+    - assets/images/
+    - assets/animations/
+    # add to fix calendar packages packages/timezone/data/latest_all.tzf
+    - packages/timezone/data/latest_all.tzf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
